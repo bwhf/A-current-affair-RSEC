@@ -3,6 +3,7 @@
 Code supporting our manuscript in Remote Sensing in Ecology and Conservation (RSEC).
 
 **Authors:**  Jessica A. Bolin<sup>1</sup>, David S. Schoeman<sup>1</sup>, Carme Piza-Roca<sup>1</sup>, Kylie L. Scales<sup>1</sup>.
+
 <sup>1</sup>Global-Change Ecology Research Group, University of the Sunshine Coast.
 
 ## DATA REQUIRED
