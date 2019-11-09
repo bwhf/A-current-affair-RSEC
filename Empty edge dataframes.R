@@ -1,8 +1,4 @@
-#Jessie Bolin Honours
 #Empty lists / dataframes for use when mapping EAC edge
-#Use this with source()
-# 2018-11-10
-
 
 #Create lists for future outputs
 all.months <- list()
