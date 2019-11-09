@@ -1,0 +1,27 @@
+# Function that takes a data directory (x), a start year (yrstrt) and an end year (yrend)
+	# Using these arguments, it will download all IMOST netCDFs from this time period that are not already in the target directory
+
+# Packages
+	library(XML)
+		
+getIMOSsst <- function(yrstrt, yrend, x = "PATH TO WORKING DIRECTORY/SUBFOLDER") {
+	
+		yrs <- yrstrt: yrend #change this as required
+		
+		for(i in yrs){
+			url <- sprintf('http://rs-data1-mel.csiro.au/imos-srs/sst/ghrsst/L3S-1d/dn/%4i/', i) # Get the URL, whilst allowing it to increment by year
+			files <- readHTMLTable(htmlParse(url), skip.rows = 1:2) # Scrape the list of files off the URL
+				files <- unlist(files[[1]]) # Make the list into something useful
+				files <- levels(files)[apply(matrix(levels(files), byrow = FALSE, ncol = 1), 2, FUN = function(x) nchar(x)) > 50] # Extract just the file names
+				files <- files[which(files %in% list.files(x)[grep(".nc", list.files(x))] == FALSE)] # ONLY files that aren't already downloaded
+			if(length(files) > 0) {
+					for(j in 1:length(files)){
+						fname <- files[j]
+						download.file(paste0(url, fname), paste0(x, "/", fname))
+						print(paste(i, j, sep = " "))
+						}
+					}		
+			}
+	}	
+
+getIMOSsst(2001, 2002)	
