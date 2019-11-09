@@ -3,6 +3,7 @@
 Code supporting our manuscript in Remote Sensing in Ecology and Conservation (RSEC).
 
 **Authors:**  Jessica A. Bolin, David S. Schoeman, Carme Piza-Roca, Kylie L. Scales.
+Global-Change Ecology Research Group, University of the Sunshine Coast.
 
 ## DATA REQUIRED
 **BlueLink Ocean Forecasting Australia Model (OFAM3)** Downloaded data for temp, v (meridional velocity), and u (zonal velocity).  
