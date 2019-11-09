@@ -22,10 +22,8 @@ for (pkg in c("raster", "ncdf4", "colorRamps", "rgeos", "maptools", "geosphere",
   library(pkg, character.only = TRUE)
 }
 
-
 # 200m contour used for isobath in Southeast Queensland
-#shape <- shapefile("C:/Users/jessi/Dropbox/Whale analysis/Raw data/ausbath_09_v4_contour_simp300m.gs.shp/ausbath_09_v4_contour_200m_simp300m.gs.shp/ausbath_09_v4_contour_200m_simp300m.shp")
-shape <- shapefile("/Users/jessicabolin/Dropbox/Whale analysis/Raw data/ausbath_09_v4_contour_simp300m.gs.shp/ausbath_09_v4_contour_200m_simp300m.gs.shp/ausbath_09_v4_contour_200m_simp300m.shp")
+shape <- shapefile("PATH TO FOLDER CONTAINING 200m ISOBATH SHAPEFILE")
 
 #Extent object for SEQ
 ex <- c(152.5, 155, -28.5, -25.5)
