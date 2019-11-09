@@ -20,3 +20,4 @@ Code supporting our manuscript in Remote Sensing in Ecology and Conservation (RS
 **Bathymetry (200 m depth contour)**  
 https://eatlas.org.au/data/uuid/4f53b370-0b46-4750-acc2-e117ff9b3545
 
+![alt text](JBolin_Fig2.jpg)
