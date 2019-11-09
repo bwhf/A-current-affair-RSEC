@@ -1,0 +1,39 @@
+# Download jplMURSST41 data from 2002-06 to 2017-11.
+
+# Required packages
+library(lubridate)
+library(RCurl)
+
+setwd() #change this to ur workinh directory
+
+dates2 <- seq(as.Date('2002-06-01'), as.Date('2002-11-30'), by = 1) #change these date sequences as required
+dates3 <- seq(as.Date('2003-05-01'), as.Date('2003-11-30'), by = 1)
+dates4 <- seq(as.Date('2004-05-01'), as.Date('2004-11-30'), by = 1)
+dates5 <- seq(as.Date('2005-05-01'), as.Date('2005-11-30'), by = 1)
+dates6 <- seq(as.Date('2006-05-01'), as.Date('2006-11-30'), by = 1)  
+dates7 <- seq(as.Date('2007-05-01'), as.Date('2007-11-11'), by = 1)
+dates8 <- seq(as.Date('2008-05-01'), as.Date('2008-11-30'), by = 1)  
+dates9 <- seq(as.Date('2009-05-01'), as.Date('2009-11-30'), by = 1)
+dates10 <- seq(as.Date('2010-05-01'), as.Date('2010-11-30'), by = 1)
+dates11 <- seq(as.Date('2011-05-01'), as.Date('2011-11-30'), by = 1)
+dates12 <- seq(as.Date('2012-05-01'), as.Date('2012-11-30'), by = 1)
+dates13 <- seq(as.Date('2013-05-01'), as.Date('2013-11-30'), by = 1)
+dates14 <- seq(as.Date('2014-05-01'), as.Date('2014-11-30'), by = 1)
+dates15 <- seq(as.Date('2015-05-01'), as.Date('2015-11-30'), by = 1)
+dates16 <- seq(as.Date('2016-05-01'), as.Date('2016-11-30'), by = 1)
+dates17 <- seq(as.Date('2017-05-01'), as.Date('2017-11-30'), by = 1)
+
+dates <- c(dates2, dates3, dates4, dates5, dates6, dates7, dates8, dates9, dates10,
+           dates11, dates12, dates13, dates14, dates15, dates16, dates17)
+head(dates)
+
+for (i in 1:length(dates)) {
+  x = "https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[("
+  xx = dates[i]
+  y = '):1:('
+  yy = dates[i]
+  zz = ')][(-35):1:(-20)][(145):1:(160)]' #extent for Southeast Queensland
+  download.file(paste0(x,xx,y,yy,zz), 
+                paste0("PATH TO WORKING DIRECTORY OR SUBFOLDER", dates[i], ".nc")) #change the file path to your working directory OR whatever folder you want to download the data to
+}
+
