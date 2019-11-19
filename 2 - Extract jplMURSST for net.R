@@ -1,12 +1,9 @@
-#2019-08-01
-#Jessie Bolin
-#Honours - extracting shark net temps
 
-#This is step 1 (jplMURSST41)
-#Extract net temp 2002-06 to 2017-11.
-source("file:///C:/Users/jessi/Dropbox/For windows laptop/Edge/Packages + Coordinates.R")
+#Extract net temps.
+source("/Packages + Coordinates.R")
 
 library(raster)
+
 sharknettempjpl <- function(site) {
   
   for (m in 1:length(monthdat$date)) {
@@ -25,8 +22,6 @@ sharknettempjpl <- function(site) {
     coordinates(xy) <- c("X", "Y")
     proj4string(xy) <- CRS("+proj=longlat +datum=WGS84") 
     nettemp <- extract(sst,xy)[1]
-    #if (nettemp = NA) {}
-    #nettemp <- sst@data@values[which.min(replace(distanceFromPoints(sst, xy), is.na(sst), NA))]
     monthdat$sharknettemp[m] <<- nettemp 
     print(monthdat$date)
     
@@ -35,13 +30,14 @@ sharknettempjpl <- function(site) {
   monthdat$area <<- site
   
 }    
+
 #2003 to 2017
 
 biglist <- list()
 massivelist <- list()
 
-YEARS = 3:17 #change this to 2
-MONTHS = 5:11 # change this to 6:11 and rerun for 2002.
+YEARS = 3:17 
+MONTHS = 5:11 
 
 for (i in min(YEARS):max(YEARS)) {
   
@@ -56,8 +52,7 @@ for (i in min(YEARS):max(YEARS)) {
                     "-")
     
     month <- grep(paste(files, collapse = "|"), list.files(), value = TRUE)
-    
-    
+        
     if (length(month) == 31) {
       delete <- grep("-31", month) #remove 31's from entanglements
       deletethem <- month[delete]
@@ -71,10 +66,9 @@ for (i in min(YEARS):max(YEARS)) {
     monthdat <- data.frame(matrix(NA, nrow = length(month), ncol = 2))
     names(monthdat) <- c('date', 'sharknettemp')
    
-    
     #Uses the jpl file names as inputs for the date column in my dataframe.
     for (p in 1:length(month)) { 
-      monthdat$date[p] <- gsub(".nc", "", month[p]) #strip the .nc part (gsub(annoying, replace, fromwhat))
+      monthdat$date[p] <- gsub(".nc", "", month[p]) 
     }
     outputs <- list()
     
@@ -96,8 +90,7 @@ for (i in min(YEARS):max(YEARS)) {
   
 }
 
-
-bigger <- do.call("rbind", massivelist) #reran for 2003-2017 and rbinded here.
-write.csv(bigger, "file:///C:/Users/jessi/Dropbox/For windows laptop/Net/jplMURSST_2003_to_2017.csv", row.names = F)
+bigger <- do.call("rbind", massivelist) 
+write.csv(bigger, "/jplMURSST_2003_to_2017.csv", row.names = F)
 
 
