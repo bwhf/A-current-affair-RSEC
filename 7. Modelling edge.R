@@ -1,6 +1,6 @@
 #Modelling the edge of the EAC, accounting for #nets/site
 
-setwd("/Users/jessicabolin/Desktop/Whale analysis/8. Resampling/Edge/.R_Cache")
+setwd("/.R_Cache") #R.Cache created using SOAR package from previous script (6. Resampling edge)
 
 source("/Offset_function.R")
 source("/Packages + Coordinates.R")
