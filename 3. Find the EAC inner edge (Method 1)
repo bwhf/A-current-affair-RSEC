@@ -4,7 +4,7 @@ source("/Empty edge dataframes.R")
 source("/Packages + Coordinates.R")
 
 # Load the BRAN (Bluelink) montly data
-  setwd() #setwd to wear BRAN data is stored
+  setwd() #setwd to where BRAN data is stored
   temps <- dir()[grep("temp", dir())] #retrieve names of OFAM temp files
   vs <- dir()[grep("v_", dir())]
   us <- dir()[grep("u_", dir())]
