@@ -1,6 +1,7 @@
 # A current affair
 
 Code supporting our manuscript in Remote Sensing in Ecology and Conservation (RSEC).
+https://zslpublications.onlinelibrary.wiley.com/doi/full/10.1002/rse2.133
 
 **Authors:**  Jessica A. Bolin<sup>1,</sup>, David S. Schoeman<sup>1</sup>, Carme Piza-Roca<sup>1</sup>, Kylie L. Scales<sup>1</sup>.
 
