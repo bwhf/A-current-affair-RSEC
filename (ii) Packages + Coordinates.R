@@ -19,6 +19,7 @@ latlons_nets <- data.frame(site=c("Gold Coast", "Rainbow Beach",
 #### Packages
 for (pkg in c("raster", "ncdf4", "colorRamps", "rgeos", "maptools", "geosphere", "maps", "mapdata",
               "lubridate", "SOAR", "plyr", "measurements")) {
+  install.packages(pkg, character.only = TRUE)
   library(pkg, character.only = TRUE)
 }
 
